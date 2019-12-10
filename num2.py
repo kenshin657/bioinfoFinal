@@ -49,4 +49,5 @@ viterbi = hmm.predict( bacteriaPhage, algorithm='viterbi')[1:-1]
 viterbiPath =''.join(map(str, viterbi))
 
 print(viterbiPath)
+print(f'State 0: {hmm.states[0].name}\nState 1: {hmm.states[1].name}')
 
