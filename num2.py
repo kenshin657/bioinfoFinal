@@ -32,8 +32,7 @@ d1 = DiscreteDistribution({'A':0.2700, 'C':0.2084, 'G':0.1980, 'T':0.3236})
 s1 = State(d0, name='CG')
 s2 = State(d1, name='AT')
 
-
-hmm = HiddenMarkovModel('Regions')
+hmm = HiddenMarkovModel('CG and AT Rich')
 hmm.add_states(s1, s2)
 hmm.add_transition(hmm.start, s1, 0.5)
 hmm.add_transition(hmm.start, s2, 0.5)
@@ -42,6 +41,8 @@ hmm.add_transition(s2,s2, 0.9998)
 hmm.add_transition(s1,s2, 0.0002)
 hmm.add_transition(s2,s1, 0.0002)
 hmm.bake()
+
+
 
 viterbi = hmm.predict( bacteriaPhage, algorithm='viterbi')[1:-1]
 
